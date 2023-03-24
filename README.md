@@ -1,7 +1,7 @@
 # ForeEndWeb-Dome
 **Web front-end Dome case⚓**
 ## 对个人前端学习做系统性的整理🎃
-**系统性的整理了NodeJS、Webpack、VueJS学习过程中写的Dome，其他的比如Css布局、JavaScript等 我没有系统性的写Dome所有没有记录**
+**系统性的整理了NodeJS、Webpack、VueJS学习过程中的Dome，其他的比如Css布局、JavaScript等 我没有系统性的Dome所有没有记录**
 
 **其中Vue包含💦：**
   - 模板语法
