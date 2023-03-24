@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue监视数据改变的原理</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+          <h2>学校名称：{{name}}</h2>
+          <h2>学校地址：{{address}}</h2>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                name:"五昊智能",
+                address:'石家庄'
+            }
+        }) 
+    </script>
+</html>
+
+
+

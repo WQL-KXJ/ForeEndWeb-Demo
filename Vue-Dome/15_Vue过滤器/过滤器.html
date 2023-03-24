@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue过滤器</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/dayjs/1.11.7/dayjs.min.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+            <h2>时间戳:{{time}}</h2>
+            <h2>显示格式化后的时间</h2>
+            <!--计算属性实现-->
+            <h3>计算属性实现：{{fmtTime}}</h3>
+            <!--methods方法实现-->
+            <h3>方法实现：{{metfmtTime()}}</h3>
+            <!--过滤器实现：传一个参数 默认会把管道符前面的值做为参数传给过滤器-->
+            <h3>过滤器单参：{{time | timeFormater()}}</h3>
+            <!--过滤器实现：传两个以上的参数 -->
+            <h3>过滤器多参：{{time | timeFormater2("YYYY年MM月DD日 HH时mm分ss秒")}}</h3>
+            <!--过滤器实现：多个过滤器串联 -->
+            <h3>过滤器串联：{{time | timeFormater() | mySlice()}}</h3>
+        </div>
+    </body>
+
+
+    <script type="text/javascript">
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                time:1676175091064 //事件戳
+            },
+            computed:{
+                fmtTime(){
+                    return dayjs(this.time).format("YYYY-MM-DD HH:mm:ss")
+                }
+            },
+            methods:{
+                metfmtTime(){
+                    return dayjs(this.time).format("YYYY-MM-DD HH:mm:ss")
+                }
+            },
+            //定义过滤器
+            filters:{
+                //传单个参数
+                timeFormater(value){
+                    console.log('@',value)
+                    return dayjs(value).format("YYYY-MM-DD HH:mm:ss")
+                },
+                //传两个以上的参数，默认第一个参数永远是管道符前面传入的值，后面是自定义的传参
+                timeFormater2(value,str){
+                    console.log('@',value)
+                    return dayjs(value).format(str)
+                },
+                //多个过滤器串联
+                mySlice(value){
+                    return value.slice(0,11)
+                }
+            }
+        }) 
+    </script>
+</html>
+

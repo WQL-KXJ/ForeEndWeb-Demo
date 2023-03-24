@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue监听数组的原理</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+            <button @click="alterArr">添加一条数据</button>
+            <button @click="erralterArr">错误的修改方法</button>
+         <ul>
+            <li v-for="(x,index) of friends">
+                {{x.name}} -- {{x.age}} -- {{x.sex}}
+            </li>
+         </ul>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        const vm = new Vue({
+            el:"#root",
+            data:{
+               friends:[
+                {name:"贾宝玉",age:"男",sex: 21},
+                {name:"王熙凤",age:"女",sex: 38},
+                {name:"林黛玉",age:"女",sex: 23},
+                {name:"薛宝钗",age:"女",sex: 24}
+               ]
+            },
+            methods:{
+                alterArr:function(){
+                    //正确的修改方法
+                    this.friends.push({name:"贾雨村",age:"48",sex:"男"})
+                    
+                },
+                erralterArr:function(){
+                    //错误的修改方法
+                    this.friends[3]={name:"小红",age:"20",sex:"女"}
+                }
+            }
+        }) 
+    </script>
+</html>
+
+
+

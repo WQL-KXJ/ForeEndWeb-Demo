@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>条件渲染</title>
+        <meta charset="UTF-8"/>
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+
+        <div id="root">
+            <template v-if="1===1">
+                <h1>template模板</h1>
+                <h2>template模板</h2>
+                <h3>template模板</h3>
+            </template>
+
+        </div>
+           
+
+    </body>
+
+    <script>
+        Vue.config.productionTip = false
+        const vm = new Vue({
+            el:"#root",
+            data:{
+               n:1,
+            },
+        })
+    </script>
+
+</html>
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Object.defineProperty</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+
+        <div id="root">
+
+
+        </div>
+
+    </body>
+
+    <script>
+    
+        let num = 18
+
+        let person = {
+            name:"空想家",
+            sex:'男',
+            //age:18
+        }
+
+    Object.defineProperty(person,'age',{
+        value: num,//属性值
+        enumerable: true,//控制属性是否可以枚举，默认是false
+        writable: true,//控制属性是否可以被修改，默认值是false
+        configurable: true,//控制属性是否可以被删除，默认是false
+        // get(){//当有人读取person的age属性时，get函数就会被调用，且返回值就是age的值
+        //     return num
+        // },
+        // set(){//当有人设置person的age属性时，set函数就会被调用
+        //     console.log("age值修改："+num)
+        // }
+    })
+
+    console.log(person)
+    </script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

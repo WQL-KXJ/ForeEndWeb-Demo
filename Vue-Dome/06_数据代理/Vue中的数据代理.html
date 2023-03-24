@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Vue中的数据代理</title>
+        <meta charset="UTF-8"/>
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+
+        <div id="root">
+            <h1>学校：{{schoolname}}</h1>
+        </div>
+
+    </body>
+
+    <script>
+        Vue.config.productionTip = false
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                schoolname:"门头沟大学"
+            },
+        })
+        console.log(vm)
+    </script>
+
+</html>
+
+
+
+
+
+
+

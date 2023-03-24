@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>条件渲染</title>
+        <meta charset="UTF-8"/>
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+
+        <div id="root">
+            <h2>当前的n值:{{n}}</h2>
+            <button v-on:click="n++">n++</button>
+            <!--v-if层级判断不到被打断-->
+            <div v-if="n===1">Spring</div>
+            <!--打断if
+            <div>@</div>
+            -->
+            <div v-else-if="n===2">SpringMVC</div>
+            <div v-else="n===3">SpringBoot</div>
+            
+            <!--v-show-->
+            <div v-show="n===4">SpringSession</div>
+
+        </div>
+           
+
+    </body>
+
+    <script>
+        Vue.config.productionTip = false
+        const vm = new Vue({
+            el:"#root",
+            data:{
+               n:1,
+            },
+        })
+    </script>
+
+</html>
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue数据绑定</title>
+        <meta charset="UTF-8"/>
+        <!--引入Vue-->
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <!--容器-->
+        <div id="root">
+            单向数据绑定：<input type="text" v-bind:value="name"/><br/>
+            双向数据绑定：<input type="text" v-model:value="name"/>
+        </div>
+
+    </body>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+
+        const a = new Vue({
+            el:"#root",
+            data:{
+                name:"空想家"
+            }
+
+        })
+
+    </script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

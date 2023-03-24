@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>函数式自定义指令</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+            <h1 :style="{opacity}">Vue进行渐变!</h1>
+            
+            <button @click="close">停止渐变</button>
+        </div>
+    </body>
+
+
+    <script type="text/javascript">
+       
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                opacity:1
+           },
+           methods:{
+            close(){
+                    //手动销毁
+                   this.$destroy()
+                }
+           },
+           mounted(){
+                //this指向Vue，this.trim接受定时器可以在其他方法中共享这个定时器
+                this.trim = setInterval(()=>{
+                        vm.opacity -=0.01
+                        if(vm.opacity <= 0) vm.opacity=1
+                    },16)
+           },
+           beforeDestroy(){
+            //销毁定时器
+            clearInterval(this.trim)
+            console.log("beforeDestroy销毁定时器 vm被销毁")
+           }
+
+        }) 
+
+    </script>
+</html>

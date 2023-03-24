@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>事件修饰符</title>
+        <meta charset="UTF-8"/>
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+            <!--阻止默认事件-->
+            <a href="http://wql.luoqin.ltd" @click.prevent="showInfo($event,'阻止默认事件')">提示信息(阻止默认事件)</a>
+            <!--阻止事件冒泡-->
+            <div class="demo1" @click="showInfo($event,'阻止事件冒泡1')">
+                <button @click.stop="showInfo($event,'阻止事件冒泡2')">提示信息(阻止事件冒泡)</button>
+            </div>
+            <!--事件只触发一次-->
+            <button @click.once="showInfo($event,'事件只触发一次')">提示信息(事件只触发一次)</button>
+            <!--使用事件的捕获模式-->
+            <div class="box1" @click.capture="showInfo($event,'box1')">
+                div1
+                <div class="box2" @click.capture="showInfo($event,'box2')">
+                    div2
+                </div>
+            </div>
+            <!--只有event.target是当前操作的元素时才触发事件,这个可以阻止冒泡-->
+            <div @click.self="showInfo($event,'只有event.target是当前操作的元素时才触发事件')">
+                <button @click="showInfo($event,'只有event.target是当前操作的元素时才触发事件')">提示信息</button>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        Vue.config.productionTip = false
+        const vm = new Vue({
+            el:"#root",
+            data:{
+            },
+            methods:{
+                showInfo:function(event,mes){
+                    alert(mes)
+                }
+            }
+        })
+    </script>
+
+</html>

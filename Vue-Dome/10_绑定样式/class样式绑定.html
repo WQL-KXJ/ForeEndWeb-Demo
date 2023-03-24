@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>class样式绑定</title>
+        <meta charset="UTF-8"/>
+        <style>
+            .happy{
+                width: 400px;
+                height: 100px;
+                border:1px solid rgb(210, 114, 114);
+            }
+            .kill{
+                width: 400px;
+                height: 100px;
+                border:1px solid rgb(24, 13, 57);
+                background-color: aqua;
+            }
+            .kxj{
+                width: 400px;
+                height: 100px;
+                border:1px solid rgb(54, 146, 25);
+                background-color: rgb(168, 57, 96);
+            }
+        </style>
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+
+        <div id="root">
+            <!--字符串写法绑定-->
+            <div :class="mood">Test</div>
+            <!--对象写法绑定-->
+            <div :class="classobj">Test</div>
+            <!--数组写法绑定-->
+            <div :class="classArr">Test</div>
+        </div>
+
+    </body>
+
+    <script>
+        Vue.config.productionTip = false
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                //字符串写法
+                mood:"happy",
+                //对象绑定
+                classobj:{
+                    kxj:true,
+                    happy:false
+                },
+                //数组绑定
+                classArr:['kill',"happy"]
+            },
+        })
+    </script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

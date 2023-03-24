@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>VueComponent构造函数</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+            <school></school>
+            <button @click="myclick">Vue的method中this的指向</button>          
+        </div>
+    </body>
+
+
+    <script type="text/javascript">
+       
+       const school = Vue.extend({
+            template:`<div><h2>学校名称：{{schoolName}}</h2>
+                    <h2>学校地址：{{address}}</h2>
+                    <button @click="youclick">Vue的method中this的指向</button>
+                    </div>`,
+            methods:{
+                youclick(){
+                    console.log(this)
+            }},
+            data(){
+                return{
+                    schoolName:"符文学院",
+                    address:"符文之地"
+                }
+            }
+       })
+
+       const student = Vue.extend({
+            template:`<div><h2>学生名称：{{studentName}}</h2>
+                    <h2>学生地址：{{age}}</h2></div>`,
+            data(){
+                return{
+                    studentName:"瑞兹",
+                    age:"19"
+                }
+            }
+       })
+
+    //    console.log("school实例:"+school)
+    //    console.log("student实例:"+student)
+    //    console.log(school === student)
+        const vm = new Vue({
+            el:"#root",
+            data:{
+
+           },
+           methods:{
+            myclick(){
+                console.log(this)
+            }
+           },
+           components:{
+                school
+           }
+        }) 
+    </script>
+</html>

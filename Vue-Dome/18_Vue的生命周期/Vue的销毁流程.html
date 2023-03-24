@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue的销毁流程</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root" :x="opacity">
+           
+            <h1 v-text="opacity"></h1>
+            <button @click="opacity++">更新数据</button>
+            <button @click="bye()">手动销毁</button>
+        </div>
+    </body>
+
+
+    <script type="text/javascript">
+       
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                opacity:1
+           },
+           methods:{
+            bye(){
+                console.log("vm.$destroy进行销毁!")
+                this.$destroy()
+            }},
+            beforeDestroy(){
+            console.log("beforeDestroy:"+this.opacity)
+           },
+           destroyed(){
+
+            console.log("destroyed:"+this.opacity)
+           }
+        }) 
+    </script>
+</html>
+
+
+
+
+
+
+
+
+

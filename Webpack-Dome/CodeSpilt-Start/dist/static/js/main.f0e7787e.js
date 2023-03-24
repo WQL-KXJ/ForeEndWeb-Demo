@@ -1,0 +1,1 @@
+(self.webpackChunkCodeSpilt_Start=self.webpackChunkCodeSpilt_Start||[]).push([[179],{225:(e,t,n)=>{console.log("hello main"),document.getElementById("btn").onclick=function(){n.e(600).then(n.bind(n,640)).then((({sum:e})=>{alert(e(1,2,3,4,5))}))}}},e=>{e(e.s=225)}]);

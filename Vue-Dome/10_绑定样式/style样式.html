@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>style样式绑定</title>
+        <meta charset="UTF-8"/>
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+
+        <div id="root">
+            <!--对象写法绑定-->
+            <div :style="styleObj">Test</div>
+            <!--数组写法绑定-->
+            <div :style="styleArr">Test</div>
+        </div>
+
+    </body>
+
+    <script>
+        Vue.config.productionTip = false
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                styleObj:{
+                   fontSize: '40px',
+                   color: 'red'
+                 },
+                 styleArr:[
+                             {
+                                fontSize:'40px',
+                                color:'blue'
+                                    },
+                            {
+                              backgroudColor:'gray'
+                  }
+                ]
+            },
+        })
+    </script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

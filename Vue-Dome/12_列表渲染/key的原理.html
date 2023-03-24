@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>key的原理</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+            <!--指定key为index索引-->
+            <ul>
+                <li v-for="(item,index) of persons" :key="index"> {{item.name}}--{{item.age}} ---> {{index}}</li>
+            </ul>
+            <!--指定key为item数据中的唯一标识-->
+            <ul>
+                <li v-for="(item,index) of persons" :key="item.id"> {{item.name}}--{{item.age}} ---> {{index}}</li>
+            </ul>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                //数组
+                persons:[
+                    {id:'001',name:'张三',age:18},
+                    {id:'002',name:'李四',age:19},
+                    {id:'003',name:'王五',age:20}
+                ]
+            }
+        }) 
+    </script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>模板语法</title>
+        <!--引入Vue-->
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <!--准备一个容器-->
+        <div id="root">
+            <h1>插值语法</h1>
+            <h2>hello, {{name}}</h2>
+            <hr>
+            <h1>指令语法</h1>
+            <a v-bind:href="url" v-bind:x="Date.now()">超链接</a>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+
+        Vue.config.productionTip = false //阻止vue在启动时生成提升
+        new Vue({
+            el:'#root',
+            data:{
+                name:"空想家",
+                url:"https://wql.luoqin.ltd"
+            }
+
+        })
+    </script>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>函数式自定义指令</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+            <input type="text" v-bd="n"/>
+            <button @click="n++">n++</button>
+        </div>
+    </body>
+
+
+    <script type="text/javascript">
+       
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                n:1
+           },
+           directives:{
+                bd(element,binding){
+                   element.value = binding.value
+                   element.focus()
+                }
+           }
+        }) 
+    </script>
+</html>
+
+
+
+
+
+
+
+
+

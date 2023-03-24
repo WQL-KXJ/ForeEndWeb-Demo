@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>组件嵌套</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+           <app></app>
+        </div>
+    </body>
+
+
+    <script type="text/javascript">
+        //创建student,它是school的子组件
+        const student = Vue.extend({
+             template:`
+                <div>
+                    <h2>学生名称：{{studentName}}</h2>
+                    <h2>学生年龄：{{age}}</h2>
+                </div>
+            `,
+            data(){
+                return {
+                    studentName:"维迦",
+                    age:31
+                }}
+        })
+
+        //创建school组件
+        const school = Vue.extend({
+            template:`
+                <div>
+                    <h2>学校名称：{{schoolName}}</h2>
+                    <h2>学校地址：{{address}}</h2>
+                </div>
+            `,
+            data(){
+                return {
+                    schoolName:"班德尔大学",
+                    address:"班德尔城"
+                }
+            },
+        })
+
+        //创建app组件它管理所有
+        const app = Vue.extend({
+            template:`
+                <div>
+                    <school></school>
+                    <student></student>
+                </div>
+            `,
+            //注册所管理的全部组件
+            components:{
+                student,
+                school
+            }
+
+        })
+
+        const vm = new Vue({
+            el:"#root",
+            //注册组件
+            components:{
+                app
+            }
+        }) 
+    </script>
+</html>

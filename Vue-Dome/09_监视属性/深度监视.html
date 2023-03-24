@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>深度监视</title>
+        <meta charset="UTF-8"/>
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+           <button @click="update()">更新wql.aa.bb的值</button>
+        </div>
+    </body>
+
+    <script>
+        Vue.config.productionTip = false
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                wql:{
+                    aa:{
+                        bb:1
+                    }
+                }
+            },
+            methods:{
+                update(){
+                this.wql.aa.bb = this.wql.aa.bb++;
+                }
+            },
+            watch:{
+                wql:{
+                    deep:true,
+                    handler(newValue,oldValue){
+                        alert("wql.aa.bb值更改")
+                    }
+                },
+            }
+        })
+    </script>
+
+</html>

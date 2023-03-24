@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue.set()方法的使用</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+          <h2>公司名称：{{name}}</h2>
+          <h2>公司地址：{{address}}</h2>
+          <h2>员工姓名：{{personnel.name}}</h2>
+          <h2>员工真实年龄：{{personnel.age.rAge}} 员工对外年龄：{{personnel.age.sAge}}</h2>
+          <button @click="addSex">添加一个性别属性，默认值为男</button>
+          <h2 v-if="personnel.sex">性别：{{personnel.sex}}</h2>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                name:"五昊智能",
+                address:'石家庄',
+                personnel:{
+                    name:"Tom",
+                    age:{
+                        rAge:40,
+                        sAge:29
+                    }
+                }
+            },
+            methods:{
+                addSex(){
+                    //动态往data中的personnel属性添加数据
+                    Vue.set(this.personnel,"sex","男")
+                }
+
+            }
+        }) 
+    </script>
+</html>
+
+
+

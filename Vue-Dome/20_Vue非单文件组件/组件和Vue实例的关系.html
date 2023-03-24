@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>组件和Vue实例的关系</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+            <school></school>
+        </div>
+    </body>
+
+
+    <script type="text/javascript">
+       
+       Vue.prototype.lala="组件访问实例中的data属性！"
+
+       const school = Vue.extend({
+            template:`<div><h1 v-bind="lala"></h1>
+                    <button @click="youclick">Vue的method中this的指向</button>
+                    </div>`,
+            methods:{
+                youclick(){
+                    console.log(this.lala)
+            }}
+       })
+
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                
+           },
+           methods:{
+            myclick(){
+                console.log(this)
+            }
+           },
+           components:{
+                school
+           }
+        }) 
+
+        console.log(school.prototype.__proto__ == Vue.prototype)
+    </script>
+</html>

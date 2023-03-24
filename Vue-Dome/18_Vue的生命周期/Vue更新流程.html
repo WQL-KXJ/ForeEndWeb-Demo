@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue的更新流程</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root" :x="opacity">
+           
+            <h1 v-text="opacity"></h1>
+            <button @click="opacity='逃离模块化的社会评价体系'">更新数据</button>
+        </div>
+    </body>
+
+
+    <script type="text/javascript">
+       
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                opacity:"空想家"
+           },
+           beforeUpdate(){
+                console.log("页面未更新")
+           },
+           updated(){
+            console.log("数据和页面都更新")
+           }
+        }) 
+    </script>
+</html>
+
+
+
+
+
+
+
+
+

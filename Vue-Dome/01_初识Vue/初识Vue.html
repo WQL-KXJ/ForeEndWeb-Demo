@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>初识Vue</title>
+        <!--引入Vue-->
+        <script type="text/javascript" src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <!--1.准备一个容器-->
+        <div id="root">
+            <!--3.使用插值语法动态绑定数据-->
+            <h1>Hello,{{name}},{{100+200}},{{Date.now()}},{{1==2?"等于":"不等于"}}</h1>
+        </div>
+        
+        <script type="text/javascript">
+            //Vue全局配置项：阻止vue启动时生成生产提示
+            Vue.config.productionTip = false
+            //2.创建Vue实例
+            new Vue({
+                el:"#root",//el用于指定当前Vue实例为哪个容器服务,值通常为Css选择器
+                data:{//data用于存储数据，数据供el所指定的容器去使用
+                    name:"空想家"
+                }
+            })
+
+        </script>
+
+    </body>
+
+</html>

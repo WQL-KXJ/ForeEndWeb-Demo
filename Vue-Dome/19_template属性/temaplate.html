@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>函数式自定义指令</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root" :x="opacity">
+        
+            <h1>解析页面的HTML结构</h1>
+        </div>
+    </body>
+
+
+    <script type="text/javascript">
+       
+        const vm = new Vue({
+            el:"#root",
+            template:`<div id="root" x="替换原来的div基本结构">
+                         <h1>解析template的HTML结构</h1>
+                        <div>`,
+            data:{
+                opacity:"空想家"
+           }
+        }) 
+    </script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1 @@
+(self.webpackChunkCodeSpilt_Start=self.webpackChunkCodeSpilt_Start||[]).push([[143],{672:()=>{console.log("hello app")}},e=>{e(e.s=672)}]);

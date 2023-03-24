@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>非单文件组件</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+            <h2>学校名称：{{schoolName}}</h2>
+            <h2>学校地址：{{address}}</h2>
+            <hr>
+            <h2>学生名称：{{studentName}}</h2>
+            <h2>学校年龄：{{age}}</h2>
+        </div>
+    </body>
+
+
+    <script type="text/javascript">
+
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                schoolName:"德玛西亚学院",
+                address:"德玛西亚",
+                studentName:"嘉文三世",
+                age:21
+           }
+        }) 
+    </script>
+</html>

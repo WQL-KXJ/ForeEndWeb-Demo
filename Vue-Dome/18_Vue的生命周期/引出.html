@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>函数式自定义指令</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+            <h1 :style="{opacity}">Vue进行渐变!</h1>
+            
+            <!-- <button @click="change">点击渐变</button> -->
+        </div>
+    </body>
+
+
+    <script type="text/javascript">
+       
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                opacity:1
+           },
+           methods:{
+                change(){
+                    console.log("开启一个定时器")
+                    setInterval(()=>{
+                        vm.opacity -=0.01
+                        if(vm.opacity <= 0) vm.opacity=1
+                    },16)
+
+                }
+           },
+           //Vue完成模板的解析并把真实的DOM元素放入页面后(挂载完毕)调用mounted(在整个过程只调用一次)
+           mounted(){
+                setInterval(()=>{
+                        vm.opacity -=0.01
+                        if(vm.opacity <= 0) vm.opacity=1
+                    },16)
+           }
+
+        }) 
+
+        // setInterval(()=>{
+        //     vm.opacity -=0.01
+        //     if(vm.opacity <= 0) vm.opacity=1
+
+        // },16)
+    </script>
+</html>
+
+
+
+
+
+
+
+
+

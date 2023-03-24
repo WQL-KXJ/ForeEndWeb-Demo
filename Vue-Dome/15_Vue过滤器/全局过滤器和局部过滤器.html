@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>全局过滤器和局部过滤器</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/dayjs/1.11.7/dayjs.min.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+
+        </div>
+    </body>
+
+
+    <script type="text/javascript">
+        Vue.filter("myfilter",function(value){
+
+
+        })
+        const vm = new Vue({
+            el:"#root",
+            //定义过滤器
+            filters:{
+                timeFormater(value){
+                    console.log('@',value)
+                    return dayjs(value).format("YYYY-MM-DD HH:mm:ss")
+                }
+            }
+        }) 
+    </script>
+</html>
+

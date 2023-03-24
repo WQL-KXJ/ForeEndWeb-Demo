@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>姓名案例(插值实现)</title>
+        <meta charset="UTF-8"/>
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+
+        <div id="root">
+            <!--v-model数据双向绑定-->
+           姓：<input type="text" placeholder="输入姓" v-model="firstname"><br/><br/>
+           名：<input type="text" placeholder="输入名" v-model="lastname"> <br/><br/>
+           姓名：<span>{{firstname.slice(0,3)}}-{{lastname}}</span>
+        </div>
+
+    </body>
+
+    <script>
+        Vue.config.productionTip = false
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                firstname: '',
+                lastname:''
+            }
+        })
+    </script>
+
+</html>

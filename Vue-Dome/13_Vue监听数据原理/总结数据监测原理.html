@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>总结数据监测的原理</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+          <button @click="addSex">添加一个性别属性，默认值为男</button>
+          <button @click="personnel.sex='女'">修改性别</button><br/>
+          <button @click="personnel.age.rAge++">年龄加1</button><br/>
+          <button @click="addFriend">在朋友列表首位添加一条信息</button><br/>
+          <button @click="updateFristFriendName">修改第一个朋友的年龄为: 张桑</button><br/>
+          <h2>公司名称：{{name}}</h2>
+          <h2>公司地址：{{address}}</h2>
+          <h2>员工姓名：{{personnel.name}}</h2>
+          <h2>员工真实年龄：{{personnel.age.rAge}} 员工对外年龄：{{personnel.age.sAge}}</h2>
+          <h2 v-if="personnel.sex">性别：{{personnel.sex}}</h2>
+          <ul>
+            <li v-for="(x,index) of personnel.friends">
+                {{x.name}} -- {{x.age}}
+            </li>
+          </ul>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        const vm = new Vue({
+            el:"#root", 
+            data:{
+                name:"五昊智能",
+                address:'石家庄',
+                personnel:{
+                    name:"Tom",
+                    age:{
+                        rAge:40,
+                        sAge:29
+                    },
+                    friends:[
+                        {name:"丽丽",age:19},
+                        {name:"莉莉",age:20},
+                        {name:"黎黎",age:21}
+                    ]
+                }
+            },
+            methods:{
+                //动态添加一个性别
+                addSex(){
+                    //动态往data中的personnel属性添加数据
+                    Vue.set(this.personnel,"sex","男")
+                },
+                //在朋友列表首位添加一条信息
+                addFriend(){
+                    this.personnel.friends.unshift({name:"滴滴",age:14})
+                },
+                //修改第一个朋友的年龄为: 张桑
+                updateFristFriendName(){
+                    this.personnel.friends[0].name="张桑"
+                }
+            }
+        }) 
+    </script>
+</html>
+
+
+

@@ -1,0 +1,27 @@
+{
+  "name": "Node-Start",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "body-parse": "^0.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-jwt": "^6.1.1",
+    "express-session": "^1.17.3",
+    "json-parse": "^1.0.3",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.4",
+    "querystring": "^0.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

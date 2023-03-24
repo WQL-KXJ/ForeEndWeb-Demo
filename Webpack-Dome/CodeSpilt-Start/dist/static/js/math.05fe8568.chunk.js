@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkCodeSpilt_Start=self.webpackChunkCodeSpilt_Start||[]).push([[600],{640:(e,t,s)=>{s.r(t),s.d(t,{sum:()=>u});const u=(...e)=>e.reduce(((e,t)=>e+t),0)}}]);

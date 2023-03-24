@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>列表排序</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+            <h2>人员列表</h2>
+            <input type="text" placeholder="请输入名字" v-model="keyWord">
+            <button @click="sortType=2">年龄升序</button>
+            <button @click="sortType=1">年龄降序</button>
+            <button @click="sortType=0">原降序</button>
+            <ul>
+                <li v-for="(p,index) of filPerons" :key="index">
+                    {{p.name}} -- {{p.age}} -- {{p.sex}}
+                </li>
+            </ul>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                keyWord:'',
+                sortType:0,//0原顺序、1降序、2升序
+                //数组
+                persons:[
+                    {id:'001',name:'张韫舒',age:18,sex:'男'},
+                    {id:'002',name:'鎏舒钰',age:19,sex:'女'},
+                    {id:'003',name:'王凛涵',age:28,sex:'女'},
+                    {id:'004',name:'刘洱凛',age:20,sex:'男'}
+                ],
+            },
+            computed:{
+                filPerons(){
+                    const arr = this.persons.filter((p)=>{
+                        return p.name.indexOf(this.keyWord) !== -1
+                    })
+                    //判断是否需要排序
+                    if(this.sortType){
+                        arr.sort((p1,p2)=>{
+                            return this.sortType === 1 ? p2.age-p1.age : p1.age-p2.age
+                        })
+                    }
+                    return arr
+                }
+            }
+        }) 
+    </script>
+</html>

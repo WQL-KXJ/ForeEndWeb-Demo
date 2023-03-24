@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue收集表单数据</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+            <!--@submit.prevent阻止默认提交事件,绑定事件dome-->
+            <form @submit.prevent="dome">
+                账号: <input type="text" v-model="kxjform.account">  <br/><br/>
+                密码: <input type="password" v-model="kxjform.password"> <br/><br/>
+                年龄: <input type="number" v-model.number="kxjform.age"> <br/><br/>
+                性别:
+                <!--radio为单选项,name设置一组单选项 value为当前选型值 假如没有value默认为false和true-->
+                男<input type="radio" name="sex" value="male" v-model="kxjform.sex">
+                女<input type="radio" name="sex" value="female" v-model="kxjform.sex"> <br/><br/>
+                爱好:
+                玩LOL<input type="checkbox" value="lol" v-model="kxjform.hobby">
+                追番<input type="checkbox" value="fang" v-model="kxjform.hobby">
+                学前端<input type="checkbox" value="view" v-model="kxjform.hobby"> <br/><br/>
+                经常用的浏览器:
+                <select v-model="kxjform.browser">
+                    <option>请选择浏览器</option>
+                    <option>火狐浏览器</option>
+                    <option>谷歌浏览器</option>
+                    <option>edge浏览器</option>
+                </select> <br/><br/>
+                其他信息:
+                <textarea v-model="kxjform.othertext"></textarea> <br/><br/>
+                <input type="checkbox" v-model="kxjform.isnor"> 阅读并接受<a href="https://wql.luoqin.ltd">《用户协议》</a><br/><br/>
+                <button type="submit" >提交</button>
+            </form>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        const vm = new Vue({
+            el:"#root",
+            //数据绑定
+            data:{
+               kxjform:{
+                    account:"",
+                    password:"",
+                    sex:"female",
+                    hobby:[],
+                    browser:"edge浏览器",
+                    othertext:"",
+                    age:null,
+                    isnor:false
+               }
+            },
+            methods:{
+                dome(){
+                    alert(JSON.stringify(this.kxjform))
+                 }
+            }
+        }) 
+    </script>
+</html>

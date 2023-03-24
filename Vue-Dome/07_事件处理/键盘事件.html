@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>键盘事件处理</title>
+        <meta charset="UTF-8"/>
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+
+        <div id="root">
+            <input type="text" placeholder="按下回车提示输入" @keyup.enter="showInfo($event,'enter')">
+            <input type="text" placeholder="按下delete提示输入" @keyup.delete="showInfo($event,'delete')">
+            <input type="text" placeholder="按下ctrl+m提示输入" @keyup.ctrl.m="showInfo($event,'ctrl+m')">       
+        </div>
+
+    </body>
+
+    <script>
+        Vue.config.productionTip = false
+        const vm = new Vue({
+            el:"#root",
+            data:{
+            },
+            methods:{
+                showInfo:function(event,mes){
+                    alert(mes+"："+event.target.value)
+                }
+            }
+        })
+    </script>
+
+</html>

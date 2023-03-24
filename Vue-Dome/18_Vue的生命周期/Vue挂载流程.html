@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue的挂载流程</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root" :x="opacity">
+           <h1>解析全部的HTML结构</h1>
+            
+        </div>
+    </body>
+
+
+    <script type="text/javascript">
+       
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                opacity:"空想家"
+           },
+           beforeCreate(){
+            console.log("beforeCreate流程(无法访问data数据)："+this.optcity)
+           },
+           created(){
+            console.log("create流程(可以访问data数据)："+this.opacity)
+           },
+           beforeMount(){
+            console.log("beforeMount流程(模板已经被解析生成虚拟DOM但真实DOM没有被生成)：")
+           },
+           mounted(){
+            console.log("mounted流程(真实DOM已经生成到页面上，可以操作页面dom结构)")
+
+           }
+        }) 
+    </script>
+</html>
+
+
+
+
+
+
+
+
+

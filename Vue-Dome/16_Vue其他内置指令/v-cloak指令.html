@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>v-html指令</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+        <script src="../tools/timeout.js"></script>
+        <style>
+            [v-cloak]{
+                display: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="root">
+            <h2 v-cloak>{{timeoutmes}}</h2>
+        </div>
+    </body>
+
+
+    <script type="text/javascript">
+       
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                timeoutmes:"延迟五秒加载！！"
+           }
+        }) 
+    </script>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>函数式自定义指令</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+            <input type="text" v-fbind="n"/>
+            <button @click="n++">n++</button>
+        </div>
+    </body>
+
+
+    <script type="text/javascript">
+       
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                n:1
+           },
+           directives:{
+                fbind:{
+                    //指令与元素成功绑定时调用
+                    bind(element,binding){
+                        element.value = binding.value
+                    },
+                    //指令所在元素被插入到页面时调用
+                    inserted(element,binding){
+                        element.focus()
+                    },
+                    //指令所在的模板被重新解析时调用
+                    update(element,binding){
+                        element.value = binding.value
+                    }
+                }
+           }
+        }) 
+    </script>
+</html>
+
+
+
+
+
+
+
+
+

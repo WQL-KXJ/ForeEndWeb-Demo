@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>模拟一个数据监视</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+       
+    </body>
+
+    <script type="text/javascript">
+
+        let data = {
+            name:'五昊智能',
+            address:'石家庄'
+        }
+
+        //创建一个监视的实例对象，用于监视data中属性的变化
+        const obs = new Observer(data)
+
+        //创建一个VM实例对象
+        let vm = {}
+        vm._data = data = obs 
+
+        function Observer(obj){
+            //汇总对象中所有的属性形成一个数组
+            const keys = Object.keys(obj)
+            //遍历数组
+            keys.forEach((k)=>{
+                Object.defineProperty(this,k,{
+                    get(){
+                        return obj[k]
+                    },
+                    set(val){
+                        console.log("name被改需要重新解析模板！")
+                        obj[k]=val
+                    }
+                })
+            })
+        }
+    </script>
+</html>
+
+

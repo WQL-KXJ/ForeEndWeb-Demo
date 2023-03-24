@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Object.defineProperty</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+    </body>
+
+    <script>
+    
+        let p1 = {x:100}
+        let p2 = {y:200}
+
+    Object.defineProperty(p2,'x',{
+        //通过get获取p1.x值
+        get(){
+            return p1.x
+        },
+        //通过set设置p1.x值
+        set(value){
+            p1.x=value
+        }
+    })
+
+    console.log(p1)
+    </script>
+
+</html>

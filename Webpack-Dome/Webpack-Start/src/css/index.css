@@ -1,0 +1,19 @@
+.box1{
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+}
+
+.box2 {
+    width: 100px;
+    height: 100px;
+    background-image: url("../images/2.jpg");
+    background-size: cover;
+  }
+
+.box3 {
+    width: 100px;
+    height: 100px;
+    background-image: url("../images/5.png");
+    background-size: cover;
+  }

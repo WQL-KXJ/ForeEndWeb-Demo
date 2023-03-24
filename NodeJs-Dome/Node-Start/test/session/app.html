@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device=width,initial-scale=1.0">
+        <title>测试跨域</title>
+        <script src="https://cdn.staticfile.org/jquery/3.6.1/jquery.min.js"></script>
+    </head>
+    <body>
+       
+
+        <script>
+            $('#btget').on('click',function(){
+                $.ajax({
+                    type:'POST',
+                    url:"http://127.0.0.1:8999/user",
+                    data:{name:"wql-kxj-get",age:800},
+                    success:function(res){
+                        console.log(res)
+                    }
+                })
+            })
+
+            $('#btpost').on('click',function(){
+                $.ajax({
+                    type:'GET',
+                    url:"http://127.0.0.1:8999/user",
+                    data:{name:"wql-kxj-post",age:800},
+                    success:function(res){
+                        console.log(res)
+                    }
+                })
+            })
+
+        </script>
+    </body>
+</html>

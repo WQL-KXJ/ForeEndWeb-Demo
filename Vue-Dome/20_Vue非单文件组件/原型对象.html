@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>原型对象</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+        </div>
+    </body>
+
+
+    <script type="text/javascript">
+       Vue.config.productionTip = false //阻止vue在启动时生成生产提示
+
+       //定义一个构造函数
+       function Demo(){
+        this.a = 1,
+        this.b = 2
+       }
+
+       //创建一个Demo的实例对象
+       const d = new Demo()
+
+       console.log(Demo.prototype)//显示原型属性
+       console.log(d.__proto__)//隐式原型属性
+       console.log(Demo.prototype == d.__proto__)
+
+       //为显示原型属性添加新属性
+       Demo.prototype.hello = 100
+
+       //查询隐式原型属性中是否有
+       console.log(d.__proto__.hello)
+    </script>
+</html>

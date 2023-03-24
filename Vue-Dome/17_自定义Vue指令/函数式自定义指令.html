@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>函数式自定义指令</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+            <h2>当前的n值: <span v-text="n"></span></h2>
+            <h2>放大10倍后的n值: <span v-big="n"></span></h2>
+            <button @click="n++">n++</button>
+        </div>
+    </body>
+
+
+    <script type="text/javascript">
+       
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                n:1
+           },
+           directives:{
+                big(element,binding){
+                    element.innerText = binding.value * 10
+                }
+           }
+        }) 
+    </script>
+</html>
+
+
+
+
+
+
+
+
+

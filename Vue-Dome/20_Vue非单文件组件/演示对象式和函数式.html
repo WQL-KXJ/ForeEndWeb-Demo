@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>演示对象式和函数式data写法</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+          
+            
+        </div>
+    </body>
+
+
+    <script type="text/javascript">
+        //定义一个对象，它类似于组件
+        // let data = {
+        //     a:1,
+        //     b:2
+        // }
+        //x1页面要用它
+        // const x1 = data
+        // //x2页面也要用它
+        // const x2 = data
+        //定义一个函数，返回数据，类似于组件
+        function data(){
+            return{
+                a:1,
+                b:2
+            }
+        }
+        //x1页面要用它
+        const x1 = data()
+        //x2页面也要用它
+        const x2 = data()
+
+
+    </script>
+</html>

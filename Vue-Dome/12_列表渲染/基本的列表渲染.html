@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>基本列表渲染</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+            <!--遍历数组-->
+            <h3>遍历数组</h3>
+            <ul>
+                <li v-for="(p,index) of persons" > {{p.id}}--{{p.name}}--{{p.age}} ---> {{index}}</li>
+            </ul>
+            <!--遍历对象-->
+            <h3>遍历对象</h3>
+            <ul>
+                <li v-for="(ca,index) of car"> {{ca}} ---> {{index}} </li>
+            </ul>
+            <!--遍历字符串-->
+            <h3>遍历字符串</h3>
+            <ul>
+                <li v-for="(s,index) of str"> {{s}} ---> {{index}} </li>
+            </ul>
+            <!--遍历指定次数-->
+            <h3>遍历指定次数</h3>
+            <ul>
+                <li v-for="(num,index) of 5"> {{num}} ---> {{index}} </li>
+            </ul>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                //数组
+                persons:[
+                    {id:'001',name:'张三',age:18},
+                    {id:'002',name:'李四',age:19},
+                    {id:'003',name:'王五',age:20}
+                ],
+                //对象
+                car:{
+                    name:"雷克萨斯NX",
+                    price:'350000',
+                    color:'银色'
+                },
+                //字符串
+                str:"china"
+
+            }
+        }) 
+    </script>
+</html>

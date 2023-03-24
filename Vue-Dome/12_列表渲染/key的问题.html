@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>key的问题</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+            <!--指定key为index索引 28:55-->
+            <button @click="add">添加一个老六</button>
+            <ul>
+                <li v-for="(item,index) of persons" :key="index"> {{item.name}}--{{item.age}} ---> {{index}}
+                    <input type="text">
+                </li>
+            </ul>
+
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                //数组
+                persons:[
+                    {id:'001',name:'张三',age:18},
+                    {id:'002',name:'李四',age:19},
+                    {id:'003',name:'王五',age:20}
+                ]
+            },
+            methods:{
+                add(){
+                    const p = {id:'004',name:'老六',age:40}
+                    //this.persons.unshift(p)
+                    this.persons.push(p)
+                }
+            }
+        }) 
+    </script>
+</html>

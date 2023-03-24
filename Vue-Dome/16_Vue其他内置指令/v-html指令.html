@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>v-html指令</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+            <h3 v-text="DIY">lala ==></h3>
+            <h3 v-html="DIY">lala ==></h3>
+            
+        </div>
+    </body>
+
+
+    <script type="text/javascript">
+       
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                DIY:"<i>v-text指令</i>"
+           }
+        }) 
+    </script>
+</html>

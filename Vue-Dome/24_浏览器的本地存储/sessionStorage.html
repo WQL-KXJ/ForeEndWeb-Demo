@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>sessionStorage</title>
+        <meta charset="utf-8"/>
+    </head>
+
+    <body>
+        <h2>sessionStorage</h2>
+        <button onclick="saveData()">点击保存数据</button>
+        <button onclick="getData()">点击获取数据</button>
+        <button onclick="delData()">点击删除数据</button>
+        <button onclick="cleanData()">点击清空数据</button>
+
+        <script type="text/javascript">
+            //保存对象数据
+            var localdata = {name:"空想家",addr:"裁决之地",title:"teach"}
+
+            //往sessionStorage中保存数据
+            function saveData(){
+                //提供JSON将对象转换为字符串
+                var strdata = JSON.stringify(localdata)
+                //保存对象数据
+                window.sessionStorage.setItem("people",strdata)
+                //保存普通字符串数据(window可以省略)
+                sessionStorage.setItem("name","逆天而行")
+            }
+
+            //获取sessionStorage中的数据
+            function getData(){
+                //获取对象字符串数据
+                var strobj = sessionStorage.getItem("people")
+                //将json字符串数据转对象并在控制台打印
+                console.log(JSON.parse(strobj))
+                
+                //获取打印普通字符
+                console.log(sessionStorage.getItem("name"))
+            }
+
+            //删除key为name的数据
+            function delData(){
+                sessionStorage.removeItem("name")
+            }
+
+            //清空数据
+            function cleanData(){
+                sessionStorage.clear()
+            }
+        </script>
+    </body>
+</html>

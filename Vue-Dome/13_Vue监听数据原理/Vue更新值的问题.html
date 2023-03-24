@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue更新值的问题</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+            <h2>人员列表</h2>
+            <button @click="updateMei">更新一条数据</button>
+           
+            <ul>
+                <li v-for="(p,index) of persons" :key="index">
+                    {{p.name}} -- {{p.age}} -- {{p.sex}}
+                </li>
+            </ul>
+        </div>
+    </body>
+
+    <script type="text/javascript">
+
+        const vm = new Vue({
+            el:"#root",
+            data:{
+                keyWord:'',
+                //数组
+                persons:[
+                    {id:'001',name:'张韫舒',age:18,sex:'男'},
+                    {id:'002',name:'鎏舒钰',age:19,sex:'女'},
+                    {id:'003',name:'王凛涵',age:28,sex:'女'},
+                    {id:'004',name:'刘洱凛',age:20,sex:'男'}
+                ],
+            },
+            methods:{
+                updateMei(){
+                    this.persons[0]= {id:'001',name:'马保国',age:70,sex:'男'}
+                }
+            }
+        }) 
+    </script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

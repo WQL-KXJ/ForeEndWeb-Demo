@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>非单文件组件</title>
+        <meta charset="UTF-8">
+        <script src="../js/vue.js"></script>
+    </head>
+
+    <body>
+        <div id="root">
+            <!--通过组件标签 使用组件-->
+            <school></school>
+            <hr>
+            <student></student>
+            
+        </div>
+    </body>
+
+
+    <script type="text/javascript">
+       
+       //1.通过Vue.extend创建组件
+       const school = Vue.extend({
+            template:`<div><h2>学校名称：{{schoolName}}</h2>
+                    <h2>学校地址：{{address}}</h2></div>`,
+            data(){
+                return{
+                    schoolName:"符文学院",
+                    address:"符文之地"
+                }
+            }
+       })
+
+       const student = Vue.extend({
+            template:`<div><h2>学生名称：{{studentName}}</h2>
+                    <h2>学生地址：{{age}}</h2></div>`,
+            data(){
+                return{
+                    studentName:"瑞兹",
+                    age:"19"
+                }
+            }
+       })
+
+        const vm = new Vue({
+            el:"#root",
+            data:{
+
+           },
+           //2.注册组件(局部组件)
+           components:{
+                school,
+                student
+           }
+        }) 
+    </script>
+</html>
