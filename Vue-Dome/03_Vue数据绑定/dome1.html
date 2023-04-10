@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vue数据绑定</title>
+        <meta charset="UTF-8"/>
+        <script src="../js/vue.js"></script>
+        
+    </head>
+
+    <body>
+        <div id="root">
+            <button @click="show()">是否显示</button>
+            <h1 v-show="Isshow">AAAAAAA</h1>
+            <h1 v-show="Isshow">BBBBBBB</h1>
+            <template v-for="i in datas">
+                <!--{{}}-->
+                <li>{{i.id}} -- {{i.name}} -- {{i.status==1?"异常":i.status==0?"正常":i.status==2?"Nice":"未识别"}}
+                    </li>
+            </template>
+
+        </div>
+    </body>
+
+    <script type="text/javascript">
+        Vue.config.productionTip = false
+
+        const a = new Vue({
+            el:"#root",
+            data:{
+                datas:[
+                    {id:1,name:"jj",status:0},//0正常
+                    {id:2,name:"mm",status:2},//1异常
+                    {id:3,name:"hh",status:1},//2 nice
+                    {id:4,name:"tt",status:2},
+                    {id:5,name:"yy",status:1},
+                    {id:6,name:"yy",status:4}
+                ],
+                Isshow:true
+            },
+            methods:{
+                show(){
+                    this.Isshow=!this.Isshow
+                }
+
+            }
+
+        })
+
+    </script>
+
+</html>
+
+
