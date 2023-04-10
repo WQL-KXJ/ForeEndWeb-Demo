@@ -3,7 +3,7 @@
 ## 对个人前端学习做系统性的整理🎃
 **系统性的整理了NodeJS、Webpack、VueJS学习过程中的Dome，其他的比如Css布局、JavaScript等 我没有系统性的Dome所有没有记录**
   
-**其中NodeJS包含：这个文件很乱☠**
+**1）其中NodeJS包含：这个文件很乱☠**
   - 模块化 --> 内置模块(fs,http,path……) <-> 第三方模块(vue,express……) <-> 自定义模块
   - npm包管理器使用
   - require模块导入 -> module.exports模块导出 -> module.exports和exports的区别
@@ -12,7 +12,7 @@
   - Cors解决跨域 <-> Jsonp解决跨域
   - Session认证 <-> JWT认证
   
-  **其中Webpack包含：这个文件也很乱💫**
+**2）其中Webpack包含：这个文件也很乱💫**
   - Webpack基本使用
   - 配置文件解读
   - 处理CSS、Less、Sass、Scss、Style、Image、HTML、字体图标等资源
@@ -26,7 +26,7 @@
   - PWA离线处理
   - 搭建Vue脚手架
 
-**其中Vue包含💦：**
+**3）其中Vue包含💦：**
   - 模板语法
   - 指令语法 + 内置指令
   - 数据绑定
@@ -47,4 +47,26 @@
   - 代理服务器
   - 默认插槽 - 具名插槽 -作用域插槽
   
+**4）其中Vuex包含🌧：**
+  - Vuex的环境搭建
+  - Vuex的三大核心组件：State、Actions(dispatch方法)、Mutations(commit方法)
+  - Actions链式调用
+  - getters配置项
+  - MapState和MapGetters
+  - MapActions和MapMutations
+  - Vuex多组件共享数据
+  - Vuex模块化namespace
+  
+**5）其中Vue-Router包含🛸：**
+  - SPA单页面应用
+  - 路由的基本使用
+  - 嵌套路由
+  - query和params参数
+  - props配置
+  - 编程式路由导航
+  - 缓存路由组件
+  - Vue-Router两个新生命周期钩子(activated和deactivated)
+  - 全局前置路由守卫和全局后置路由守卫
+  - 独享路由守卫
+  - 组件内路由守卫
   
